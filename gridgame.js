@@ -8,7 +8,7 @@ const stepCount = document.getElementById('step-count');
 stepCount.innerText = `Step: ${step}`
 const modalBox = document.getElementById('modal-box');
 // Create check pass record
-const lit = [];
+let lit = [];
 let stepRecord = [];
 
 // Create Undo function
@@ -34,7 +34,25 @@ function stepStack(target){
 }
 
 // Create Reset function
-
+    const resetButton = document.getElementById('reset');
+    resetButton.addEventListener('click', function(){
+        for(let i=0; i<lit.length;i++){
+            let litBox = document.getElementById(lit[i])
+            colorToggle(litBox)
+            chain(litBox)
+        }
+        lit = [];
+        for(let i=0; i<levelArr[currLevel-1].length;i++){
+            let startingBox = document.getElementById(levelArr[currLevel-1][i]);
+            colorToggle(startingBox);
+            chain(startingBox);
+            lit.push(startingBox.id);
+        }
+        stepRecord = [];
+        step = 0;
+        stepCount.innerText = `Step: ${step}`
+        console.log(lit);
+    })
 
 // Create color toggle function
 function colorToggle(target){

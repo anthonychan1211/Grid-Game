@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');  
 html{
-    background-color: rgba(0, 0, 0, 0.658);
+    background-color: rgba(0, 0, 0, 0);
 }
 body::after{
     content: '';
@@ -10,24 +10,26 @@ body::after{
     right: 0px;
     bottom: 0px;
     left: 0px;
-    opacity: 0.08;
+    opacity: 0.1;
     z-index: -1;
 }
 #title ,#rule , #level{
     text-align: center;
-    color: whitesmoke;
+    color: rgb(53, 53, 53);
     align-content: center;
 }
 #title{
-    font-size:3rem;
+    font-size:3em;
     font-family: 'Poppins', sans-serif;
+    -webkit-text-stroke: 2px rgb(37, 37, 37);
+    color: white;
 }
 #rule{
     font-family: 'Poppins', sans-serif;
 }
 #info{
     text-align: center;
-    color: whitesmoke;
+    color: rgb(53, 53, 53);
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
     justify-content: center;
@@ -92,7 +94,7 @@ body::after{
     font-size: 2em;
 }
 
-#modal-replay, #modal-next{
+#modal-replay, #modal-next , #final-replay{
     font-family: 'Poppins', sans-serif;
     font-size: 1.1em;
     padding: 0.8em;
@@ -102,7 +104,7 @@ body::after{
     border-radius: 3px;
 }
 
-#modal-replay{
+#modal-replay, #final-replay{
     background-color: rgb(131, 215, 218);
     border: 0px;
     border-radius: 3px;

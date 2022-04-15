@@ -7,6 +7,7 @@ let step = 0;
 const stepCount = document.getElementById('step-count');
 stepCount.innerText = `Step: ${step}`
 const modalBox = document.getElementById('modal-box');
+const winningBox = document.getElementById('winning-modal-box');
 // Create check pass record
 let lit = [];
 let stepRecord = [];
@@ -56,12 +57,12 @@ function stepStack(target){
 
 // Create color toggle function
 function colorToggle(target){
-    if(target.style.backgroundColor == 'rgb(89, 3, 0)'){
+    if(target.style.backgroundColor == 'rgb(30, 0, 26)'){
         target.style.backgroundColor = 'rgb(86, 186, 56)'
         return;
     }
     if(target.style.backgroundColor == 'rgb(86, 186, 56)'){ 
-        target.style.backgroundColor = 'rgb(89, 3, 0)'
+        target.style.backgroundColor = 'rgb(30, 0, 26)'
         return; 
     }
 }
@@ -92,9 +93,12 @@ function litList(target){
     if(!status){
         lit.push(currstep)
     }
-    if(lit.length === 0){
+    if(lit.length === 0 && currLevel < 10){
         modalBox.style.display = 'block'
         stepRecord = [];
+    }
+    if(lit.length === 0 && currLevel === 10){
+        winningBox.style.display = 'block'
     }
 }
 // Create Box
@@ -141,6 +145,22 @@ for(let i = 0 ; i < 10 ; i++){
        step = 0;
        stepCount.innerText = `Step: ${step}`
    })
+
+//    Create final Replay Function
+const finalReplayButton = document.getElementById('final-replay');
+finalReplayButton.addEventListener('click', function(e){
+    winningBox.style.display = 'none';
+    for(let i=0; i<levelArr[currLevel-1].length;i++){
+        let startingBox = document.getElementById(levelArr[currLevel-1][i]);
+        colorToggle(startingBox);
+        chain(startingBox);
+        lit.push(startingBox.id);
+    }
+    stepRecord = [];
+    step = 0;
+    stepCount.innerText = `Step: ${step}`
+})
+
 
 // Create next level function
 

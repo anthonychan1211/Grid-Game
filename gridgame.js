@@ -33,14 +33,17 @@ function stepStack(target){
     stepRecord.push(target.id);  
 }
 
+// Create Reset function
+
+
 // Create color toggle function
 function colorToggle(target){
-    if(target.style.backgroundColor == 'black'){
-        target.style.backgroundColor = 'cornsilk'
+    if(target.style.backgroundColor == 'rgb(89, 3, 0)'){
+        target.style.backgroundColor = 'rgb(86, 186, 56)'
         return;
     }
-    if(target.style.backgroundColor == 'cornsilk'){ 
-        target.style.backgroundColor = 'black'
+    if(target.style.backgroundColor == 'rgb(86, 186, 56)'){ 
+        target.style.backgroundColor = 'rgb(89, 3, 0)'
         return; 
     }
 }
@@ -82,7 +85,7 @@ for(let i = 0 ; i < 10 ; i++){
         const box = document.createElement('div');
         box.id = `${i},${j}`;
         box.className = 'box'
-        box.style.backgroundColor = 'black'
+        box.style.backgroundColor = 'rgb(86, 186, 56)'
         const mainGrid = document.querySelector('#main-grid');
 
         // Create 'click to change function'
@@ -94,7 +97,6 @@ for(let i = 0 ; i < 10 ; i++){
             stepStack(e.target)
             step += 1;
             stepCount.innerText = `Step: ${step}`
-            console.log(lit);
         })
 
 
@@ -105,6 +107,22 @@ for(let i = 0 ; i < 10 ; i++){
     }
     }
     
+
+   // Create Replay Function
+
+   const replayButton = document.getElementById('modal-replay');
+   replayButton.addEventListener('click', function(e){
+       modalBox.style.display = 'none';
+       for(let i=0; i<levelArr[currLevel-1].length;i++){
+           let startingBox = document.getElementById(levelArr[currLevel-1][i]);
+           colorToggle(startingBox);
+           chain(startingBox);
+           lit.push(startingBox.id);
+       }
+       stepRecord = [];
+       step = 0;
+       stepCount.innerText = `Step: ${step}`
+   })
 
 // Create next level function
 
@@ -128,7 +146,7 @@ lit.push(level1box1.id);
 
 
 // Next level function
-const levelArr = ['5,5', 
+const levelArr = [['5,5'], 
                 ['3,5', '6,8'],
                 ['0,0', '7,4', '3,6'],
                 ['3,6', '2,2', '8,1', '5,5'],
@@ -149,3 +167,4 @@ function nextLevel(level){
     }
 }
     
+ 

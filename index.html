@@ -10,19 +10,24 @@
 <body>
     <header>    
         <h1 id="title">Grid Game</h1>
-        <h4 id="rule">Rule: Make all boxes black. One click will make the whole row and column flip.</h4>
+        <h4 id="rule">Rule: Make all boxes green. One click will make the whole row and column flip.</h4>
         <div id="info">
             <h1 id='level'></h1>
             <h1 id="step-count"></h1>
             <button id="undo">Undo</button>
+            <button id="reset">Reset</button>
         </div>
         </header>
     <div id="main-grid">
     </div>
     <div id="modal-box">
         <h2 id="modal-title">Level Passed!</h2>
-        <button id="modal-replay">Replay</button>
+        <button id="modal-replay">Replay Level</button>
         <button id="modal-next">Next Level</button>
+    </div>
+    <div id="winning-modal-box">
+        <h2 id="winning-modal-title">You Win!</h2>
+        <button id="modal-replay">Replay Level</button>
     </div>
 </body>
 <script src="gridgame.js"></script>

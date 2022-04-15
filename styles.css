@@ -1,26 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');  
 html{
-    background-color: lightgrey;
+    background-color: rgba(0, 0, 0, 0.658);
 }
-
+body::after{
+    content: '';
+    background-image: url('background_pattern.jpeg');
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.08;
+    z-index: -1;
+}
 #title ,#rule , #level{
     text-align: center;
+    color: whitesmoke;
     align-content: center;
 }
 #title{
     font-size:3rem;
+    font-family: 'Poppins', sans-serif;
+}
+#rule{
+    font-family: 'Poppins', sans-serif;
 }
 #info{
     text-align: center;
+    color: whitesmoke;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    justify-content: center;
+    align-items: center;
 }
 #level{
     display: inline-block;
     padding: 1rem;
-
+    font-family: 'Poppins', sans-serif;
 }
 #step-count{
     display: inline-block;
     text-align: center;
     padding: 1rem;
+    font-family: 'Poppins', sans-serif;
+}
+#undo , #reset{
+    border: 0px;
+    background-color: rgb(15, 143, 255);
+    padding: 0.8em;
+    position: relative;
+    font-size: 1.1em;
+    margin-left: 1.5em;
+    border-radius: 2px;
+    color: white;
+}
+#undo:hover, #reset:hover{
+    background-color: rgb(8, 70, 124);
 }
 #main-grid{
     display: grid;
@@ -40,9 +75,9 @@ html{
     top:50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: 1px solid black;
+    border: 15px double rgb(28, 32, 51);
     border-radius: 10px;
-    z-index: 10;
+    z-index: 1;
     background-color: white;
     width: 30em;
     max-width: 80%;
@@ -51,12 +86,50 @@ html{
     display: none;
 }
 
-#modal-title{
-    padding: 2em;
+#modal-title, #winning-modal-title{
+    padding: 1em;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2em;
 }
 
 #modal-replay, #modal-next{
-    padding: 1em;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    padding: 0.8em;
     margin: 1em;
     width: 8em;
+    border: 0px;
+    border-radius: 3px;
+}
+
+#modal-replay{
+    background-color: rgb(131, 215, 218);
+    border: 0px;
+    border-radius: 3px;
+}
+
+#modal-replay:hover{
+    background-color: cadetblue;
+}
+#modal-next{
+    background-color: rgb(168, 225, 177);
+}
+
+#modal-next:hover{
+    background-color: rgb(133, 179, 140);
+}
+#winning-modal-box{
+    position: fixed;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 15px double rgb(28, 32, 51);
+    border-radius: 10px;
+    z-index: 1;
+    background-color: white;
+    width: 30em;
+    max-width: 80%;
+    text-align: center;
+    height: 20em;
+    display: none;
 }

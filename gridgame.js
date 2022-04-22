@@ -228,7 +228,7 @@ function nextLevel(level){
 
 //  Create Random Function
 function getRandomBox(){
-    for(let i = 0 ; i < 4 ; i++){
+    for(let i = 0 ; i < 8 ; i++){
         let x = Math.floor(Math.random()*9);
         let y = Math.floor(Math.random()*9);
         let boxCo = `${x},${y}`

@@ -8,6 +8,7 @@ const stepCount = document.getElementById('step-count');
 stepCount.innerText = `Step: ${step}`
 const modalBox = document.getElementById('modal-box');
 const winningBox = document.getElementById('winning-modal-box');
+let randomizedArr = [];
 // Create check pass record
 let lit = [];
 let stepRecord = [];
@@ -37,22 +38,40 @@ function stepStack(target){
 // Create Reset function
     const resetButton = document.getElementById('reset');
     resetButton.addEventListener('click', function(){
-        for(let i=0; i<lit.length;i++){
-            let litBox = document.getElementById(lit[i])
-            colorToggle(litBox)
-            chain(litBox)
+        if(randomChallengeButton.innerText === 'Random Challenge'){
+            for(let i=0; i<lit.length;i++){
+                let litBox = document.getElementById(lit[i])
+                colorToggle(litBox)
+                chain(litBox)
+            }
+            lit = [];
+            for(let i=0; i<levelArr[currLevel-1].length;i++){
+                let startingBox = document.getElementById(levelArr[currLevel-1][i]);
+                colorToggle(startingBox);
+                chain(startingBox);
+                lit.push(startingBox.id);
+            }
+            stepRecord = [];
+            step = 0;
+            stepCount.innerText = `Step: ${step}`
         }
-        lit = [];
-        for(let i=0; i<levelArr[currLevel-1].length;i++){
-            let startingBox = document.getElementById(levelArr[currLevel-1][i]);
-            colorToggle(startingBox);
-            chain(startingBox);
-            lit.push(startingBox.id);
+        if(randomChallengeButton.innerText === 'Level Challenge'){
+            for(let i=0; i<lit.length;i++){
+                let litBox = document.getElementById(lit[i])
+                colorToggle(litBox)
+                chain(litBox)
+            }
+            lit = [];
+            for(let i=0; i<randomizedArr.length;i++){
+                let startingBox = document.getElementById(randomizedArr[i]);
+                colorToggle(startingBox);
+                chain(startingBox);
+                lit.push(startingBox.id);
+            }
+            stepRecord = [];
+            step = 0;
+            stepCount.innerText = `Step: ${step}`
         }
-        stepRecord = [];
-        step = 0;
-        stepCount.innerText = `Step: ${step}`
-        console.log(lit);
     })
 
 // Create color toggle function
@@ -119,6 +138,7 @@ for(let i = 0 ; i < 10 ; i++){
             stepStack(e.target)
             step += 1;
             stepCount.innerText = `Step: ${step}`
+            console.log(lit);
         })
 
 
@@ -204,5 +224,52 @@ function nextLevel(level){
         lit.push(startingBox.id);
     }
 }
+
+
+//  Create Random Function
+function getRandomBox(){
+    for(let i = 0 ; i < 4 ; i++){
+        let x = Math.floor(Math.random()*9);
+        let y = Math.floor(Math.random()*9);
+        let boxCo = `${x},${y}`
+        let thisBox = document.getElementById(boxCo);
+        colorToggle(thisBox)
+        chain(thisBox)
+        lit.push(boxCo)
+        randomizedArr.push(boxCo)
+        ;
+    }
+   console.log(randomizedArr);
+   console.log(lit);
+}
+//  Create Random Challenge
+
+const randomChallengeButton = document.getElementById('random-challenge')
+
+randomChallengeButton.addEventListener('click', function(){
+    if(randomChallengeButton.innerText === 'Level Challenge'){
+        randomChallengeButton.innerText = 'Random Challenge'
+        level.innerText = 'Level 1'
+        for(let i=0; i<lit.length;i++){
+            let litBox = document.getElementById(lit[i])
+            colorToggle(litBox)
+            chain(litBox)
+        }
+        lit = [];
+        colorToggle(level1box1)
+        chain(level1box1)
+        lit.push(level1box1.id);    
+        stepRecord = [];
+        step = 0;
+        stepCount.innerText = `Step : ${step}`;
+        return;
+    }
+    if(randomChallengeButton.innerText === 'Random Challenge'){
+        randomChallengeButton.innerText = 'Level Challenge'
+        level.innerText = 'Random Challenge'
+        
+        getRandomBox();
+        return;
+    }
     
- 
+})

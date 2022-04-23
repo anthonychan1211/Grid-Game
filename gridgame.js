@@ -8,6 +8,7 @@ const stepCount = document.getElementById('step-count');
 stepCount.innerText = `Step: ${step}`
 const modalBox = document.getElementById('modal-box');
 const winningBox = document.getElementById('winning-modal-box');
+const randomChallengeWinningBox = document.getElementById('random-modal-box')
 let randomizedArr = [];
 // Create check pass record
 let lit = [];
@@ -112,12 +113,15 @@ function litList(target){
     if(!status){
         lit.push(currstep)
     }
-    if(lit.length === 0 && currLevel < 10){
+    if(lit.length === 0 && currLevel < 10 && randomChallengeButton.innerText !== 'Level Challenge'){
         modalBox.style.display = 'block'
         stepRecord = [];
     }
-    if(lit.length === 0 && currLevel === 10){
+    if(lit.length === 0 && currLevel === 10 && randomChallengeButton.innerText !== 'Level Challenge'){
         winningBox.style.display = 'block'
+    }
+    if(lit.length === 0 && randomChallengeButton.innerText === 'Level Challenge'){
+        randomChallengeWinningBox.style.display = 'block'
     }
 }
 // Create Box
@@ -249,7 +253,8 @@ const randomChallengeButton = document.getElementById('random-challenge')
 randomChallengeButton.addEventListener('click', function(){
     if(randomChallengeButton.innerText === 'Level Challenge'){
         randomChallengeButton.innerText = 'Random Challenge'
-        level.innerText = 'Level 1'
+        currLevel = 1 ;
+        level.innerText = `Level ${currLevel}`
         for(let i=0; i<lit.length;i++){
             let litBox = document.getElementById(lit[i])
             colorToggle(litBox)
@@ -267,9 +272,43 @@ randomChallengeButton.addEventListener('click', function(){
     if(randomChallengeButton.innerText === 'Random Challenge'){
         randomChallengeButton.innerText = 'Level Challenge'
         level.innerText = 'Random Challenge'
-        
         getRandomBox();
         return;
     }
     
+})
+
+//  Create Random Challenge winning modal
+
+// Back to Level
+const backToLevelChallenge = document.getElementById('level-challenge');
+backToLevelChallenge.addEventListener('click', function (){
+    for(let i=0; i<lit.length;i++){
+        let litBox = document.getElementById(lit[i])
+        colorToggle(litBox)
+        chain(litBox)
+    }
+    lit = [];
+    colorToggle(level1box1)
+    chain(level1box1)
+    lit.push(level1box1.id);    
+    stepRecord = [];
+    step = 0;
+    stepCount.innerText = `Step : ${step}`;
+    randomChallengeWinningBox.style.display = 'none';
+    currLevel = 1 ;
+    level.innerText = `Level ${currLevel}`
+    randomChallengeButton.innerText = 'Random Challenge'
+}
+);
+
+// New Random Challenge
+
+const newRandomChallenge = document.getElementById('new-random');
+
+newRandomChallenge.addEventListener('click', function(){
+    getRandomBox();
+    randomChallengeWinningBox.style.display = 'none';
+    step = 0;
+    stepCount.innerText = `Step: ${step}`
 })

@@ -94,12 +94,12 @@ body::after{
     font-size: 2em;
 }
 
-#modal-replay, #modal-next , #final-replay{
+#modal-replay, #modal-next , #final-replay, #new-random, #level-challenge{
     font-family: 'Poppins', sans-serif;
     font-size: 1.1em;
     padding: 0.8em;
     margin: 1em;
-    width: 8em;
+    min-width: 8em;
     border: 0px;
     border-radius: 3px;
 }
@@ -120,7 +120,7 @@ body::after{
 #modal-next:hover{
     background-color: rgb(133, 179, 140);
 }
-#winning-modal-box{
+#winning-modal-box, #random-modal-box{
     position: fixed;
     top:50%;
     left: 50%;
@@ -129,9 +129,13 @@ body::after{
     border-radius: 10px;
     z-index: 1;
     background-color: white;
-    width: 30em;
+    min-width: 30em;
     max-width: 80%;
     text-align: center;
     height: 20em;
     display: none;
+}
+
+#level-challenge:hover, #new-random:hover{
+    background-color: rgb(180, 191, 203);
 }

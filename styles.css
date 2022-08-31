@@ -58,7 +58,7 @@ body::after{
     background-color: rgb(15, 143, 255);
     padding: 0.8em;
     position: relative;
-    font-size:min(3vw, 18px);
+    font-size:min(4vw, 18px);
     margin-left: 2vw;
     border-radius: 2px;
     color: white;
@@ -68,15 +68,15 @@ body::after{
 }
 #main-grid{
     display: grid;
-    grid-template-columns: repeat(10, min(7vw,40px));
-    grid-template-rows: repeat(10, min(7vw,40px));
+    grid-template-columns: repeat(10, min(7vw,45px));
+    grid-template-rows: repeat(10, min(7vw,45px));
     justify-content: center;
     align-items: center;
     gap: 1vw;
 }
 .box{
-    width: min(7vw,40px);
-    height: min(7vw,40px);
+    width: min(7vw,45px);
+    height: min(7vw,45px);
     border-radius: 5px;
 }
 #modal-box{

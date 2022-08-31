@@ -271,7 +271,7 @@ randomChallengeButton.addEventListener('click', function(){
     }
     if(randomChallengeButton.innerText === 'Random Challenge'){
         randomChallengeButton.innerText = 'Level Challenge'
-        level.innerText = 'Random Challenge'
+        level.innerText = 'Level Random'
         getRandomBox();
         return;
     }

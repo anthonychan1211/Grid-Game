@@ -68,15 +68,15 @@ body::after{
 }
 #main-grid{
     display: grid;
-    grid-template-columns: repeat(10, min(6vw,40px));
-    grid-template-rows: repeat(10, min(6vw,40px));
+    grid-template-columns: repeat(10, min(6.5vw,45px));
+    grid-template-rows: repeat(10, min(6.5vw,45px));
     justify-content: center;
     align-items: center;
     gap: 0.5vw;
 }
 .box{
-    width: min(6vw,40px);
-    height: min(6vw,40px);
+    width: min(6.5vw,45px);
+    height: min(6.5vw,45px);
     border-radius: 5px;
 }
 #modal-box{
@@ -98,15 +98,14 @@ body::after{
 #modal-title, #winning-modal-title{
     padding: 1em;
     font-family: 'Poppins', sans-serif;
-    font-size: 2em;
+    font-size: min(6vw,30px);
 }
 
 #modal-replay, #modal-next , #final-replay, #new-random, #level-challenge{
     font-family: 'Poppins', sans-serif;
     font-size: 1.1em;
-    padding: 0.8em;
-    margin: 1em;
-    min-width: 8em;
+    padding: 2vw;
+    margin: min(3vw,20px);
     border: 0px;
     border-radius: 3px;
 }
@@ -115,6 +114,7 @@ body::after{
     background-color: rgb(131, 215, 218);
     border: 0px;
     border-radius: 3px;
+    margin: min(3vw,20px);
 }
 
 #modal-replay:hover{

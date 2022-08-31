@@ -63,9 +63,7 @@ body::after{
     border-radius: 2px;
     color: white;
 }
-#undo:hover, #reset:hover ,#random-challenge:hover{
-    background-color: rgb(8, 70, 124);
-}
+
 #main-grid{
     display: grid;
     grid-template-columns: repeat(10, min(7vw,45px));
@@ -117,16 +115,11 @@ body::after{
     margin: min(3vw,20px);
 }
 
-#modal-replay:hover{
-    background-color: cadetblue;
-}
+
 #modal-next{
     background-color: rgb(168, 225, 177);
 }
 
-#modal-next:hover{
-    background-color: rgb(133, 179, 140);
-}
 #winning-modal-box, #random-modal-box{
     position: fixed;
     top:50%;
@@ -143,6 +136,19 @@ body::after{
     display: none;
 }
 
-#level-challenge:hover, #new-random:hover{
-    background-color: rgb(180, 191, 203);
+
+
+@media (hover: hover) {
+    #level-challenge:hover, #new-random:hover{
+        background-color: rgb(180, 191, 203);
+    }
+    #modal-next:hover{
+        background-color: rgb(133, 179, 140);
+    }
+    #modal-replay:hover{
+        background-color: cadetblue;
+    }
+    #undo:hover, #reset:hover ,#random-challenge:hover{
+        background-color: rgb(8, 70, 124);
+    }
 }

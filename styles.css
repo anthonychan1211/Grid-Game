@@ -58,7 +58,7 @@ body::after{
     background-color: rgb(15, 143, 255);
     padding: 0.8em;
     position: relative;
-    font-size:min(2.5vw, 16px);
+    font-size:min(3vw, 18px);
     margin-left: 2vw;
     border-radius: 2px;
     color: white;
@@ -68,15 +68,15 @@ body::after{
 }
 #main-grid{
     display: grid;
-    grid-template-columns: repeat(10, min(6.5vw,50px));
-    grid-template-rows: repeat(10, min(6.5vw,50px));
+    grid-template-columns: repeat(10, min(7vw,40px));
+    grid-template-rows: repeat(10, min(7vw,40px));
     justify-content: center;
     align-items: center;
-    gap: 0.5vw;
+    gap: 1vw;
 }
 .box{
-    width: min(6.5vw,50px);
-    height: min(6.5vw,50px);
+    width: min(7vw,40px);
+    height: min(7vw,40px);
     border-radius: 5px;
 }
 #modal-box{
@@ -98,7 +98,7 @@ body::after{
 #modal-title, #winning-modal-title{
     padding: 1em;
     font-family: 'Poppins', sans-serif;
-    font-size: min(6vw,30px);
+    font-size: min(6vw,35px);
 }
 
 #modal-replay, #modal-next , #final-replay, #new-random, #level-challenge{
